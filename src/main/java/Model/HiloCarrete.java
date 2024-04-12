@@ -15,7 +15,7 @@ public class HiloCarrete extends Thread {
         try {
             wait();
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
     }
