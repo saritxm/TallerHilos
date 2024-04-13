@@ -22,5 +22,4 @@ public class Directorio {
             }
         }
     }
-    public void rellenar(){};
 }
