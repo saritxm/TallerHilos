@@ -13,7 +13,7 @@ import java.io.File;
 public class Directorio {
     private ArrayList<File> imagenes;
     public Directorio (){
-        this.imagenes = new ArrayList();
+        this.imagenes = new ArrayList<>();
     }
     public void llenarDirectorio(ArrayList<File> archivos){
         if(archivos != null){
