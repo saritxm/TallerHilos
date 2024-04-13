@@ -26,4 +26,5 @@ public class Control {
     public void iniciar(){
         directorio.llenarDirectorio(vistaImagenes());
     }
+    //comentario1
 }
