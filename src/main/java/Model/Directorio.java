@@ -19,7 +19,6 @@ public class Directorio {
         if(archivos != null){
             for(File archivo: archivos){
                imagenes.add(archivo);
-                System.out.println("Archivo: " + archivo.getName());
             }
         }
     }
