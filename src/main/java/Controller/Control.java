@@ -17,7 +17,7 @@ public class Control {
         iniciar();
     }
     public ArrayList <File> vistaImagenes(){
-        ArrayList<File> imagenes = new ArrayList();
+        ArrayList<File> imagenes = new ArrayList<>();
         for(File archivo: Arrays.asList(fileChooser.seleccionarCarpeta().listFiles())){
             imagenes.add(archivo);
         }
