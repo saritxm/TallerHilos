@@ -20,6 +20,7 @@ public class Control {
         ArrayList<File> imagenes = new ArrayList();
         for(File archivo: Arrays.asList(fileChooser.seleccionarCarpeta().listFiles())){
             imagenes.add(archivo);
+            System.out.println(archivo.getName());
         }
         return imagenes;
     }
