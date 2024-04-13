@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model;
-
+//JAJAAJAJAJ XD
 /**
  *
  * @author Carlos Riveros
@@ -22,4 +22,5 @@ public class Directorio {
             }
         }
     }
+    public void rellenar(){};
 }
