@@ -46,20 +46,10 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBuscarDir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/buscar.jpg"))); // NOI18N
-        btnBuscarDir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarDirActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnBuscarDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 260, 70));
 
         btnSalirVC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/salir.jpg"))); // NOI18N
         btnSalirVC.setText("jButton2");
-        btnSalirVC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirVCActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnSalirVC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 210, 70));
 
         panelBotones.setBackground(new java.awt.Color(0, 0, 0, 0));
@@ -96,17 +86,9 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBuscarDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarDirActionPerformed
-
-    private void btnSalirVCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirVCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalirVCActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscarDir;
-    private javax.swing.JButton btnSalirVC;
+    public javax.swing.JButton btnBuscarDir;
+    public javax.swing.JButton btnSalirVC;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
