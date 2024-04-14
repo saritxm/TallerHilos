@@ -5,6 +5,7 @@
 package View;
 
 import java.awt.Image;
+import java.io.File;
 
 import javax.swing.ImageIcon;
 
@@ -151,8 +152,8 @@ public class VentanaVisor extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
-    public void mostrarImagen(ImageIcon imagen) {
-        LabelImagen.setIcon(imagen);
+    public void mostrarImagen(File imagen) {
+        LabelImagen.setIcon(new ImageIcon(imagen.getPath()));
         repaint();
     }
     
