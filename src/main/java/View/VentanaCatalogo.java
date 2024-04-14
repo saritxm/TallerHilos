@@ -141,6 +141,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     
                 // Agregamos el botón al panel de botones
                 panelImagenes.add(boton);
+                System.out.println("Boton creado");
             } catch (Exception ex) {
                 // Si hay algún error al cargar la imagen, simplemente lo ignoramos
             }
