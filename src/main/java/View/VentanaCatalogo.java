@@ -85,19 +85,6 @@ public class VentanaCatalogo extends javax.swing.JFrame {
 
         jPanel1.add(barraImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 750, 220));
 
-        javax.swing.GroupLayout panelImagenesLayout = new javax.swing.GroupLayout(panelImagenes);
-        panelImagenes.setLayout(panelImagenesLayout);
-        panelImagenesLayout.setHorizontalGroup(
-            panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
-        );
-        panelImagenesLayout.setVerticalGroup(
-            panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 260, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 730, 260));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/fondo.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, -1));
@@ -114,6 +101,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         );
         barraImagenes.setVisible(false);
         pack();
+
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -159,6 +147,7 @@ public void mostrarBotones(ArrayList<File> imagenes) {
     // Revalidamos y repintamos el panel para que los cambios sean visibles
     panelImagenes.revalidate();
     panelImagenes.repaint();
+    barraImagenes.setVisible(true);
     }
 }
 }
