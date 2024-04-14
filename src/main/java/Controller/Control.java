@@ -41,6 +41,7 @@ public class Control implements ActionListener {
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == this.vCatalogo.btnBuscarDir){
             directorio.llenarDirectorio(vistaImagenes(fileChooser.seleccionarDirectorio()));
+            vCatalogo.mostrarBotones(directorio);
         }
     }
 
