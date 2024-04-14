@@ -70,6 +70,12 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         btnSalirVC.setText("jButton2");
         jPanel1.add(btnSalirVC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 210, 70));
 
+        barraImagenes.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                barraImagenesComponentAdded(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelImagenesLayout = new javax.swing.GroupLayout(panelImagenes);
         panelImagenes.setLayout(panelImagenesLayout);
         panelImagenesLayout.setHorizontalGroup(
@@ -102,6 +108,10 @@ public class VentanaCatalogo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void barraImagenesComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_barraImagenesComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_barraImagenesComponentAdded
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane barraImagenes;
