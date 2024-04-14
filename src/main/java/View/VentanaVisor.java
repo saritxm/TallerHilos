@@ -155,6 +155,10 @@ public class VentanaVisor extends javax.swing.JFrame {
         repaint();
     }
 
+    public void aviso(String x){
+        System.out.println(x);
+    }
+
     public void cerrar(){
         dispose();
     }
