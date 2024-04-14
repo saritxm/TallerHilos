@@ -127,7 +127,7 @@ public void mostrarBotones(ArrayList<File> imagenes) {
         try {
             // Cargamos la imagen y la ajustamos al tamaño deseado
             ImageIcon icono = new ImageIcon(imagenFile.getAbsolutePath());
-            Image imagen = icono.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+            Image imagen = icono.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
 
             // Creamos un nuevo botón con la imagen
             JButton boton = new JButton(new ImageIcon(imagen));
@@ -142,7 +142,7 @@ public void mostrarBotones(ArrayList<File> imagenes) {
         } catch (Exception ex) {
             System.err.println("Error al cargar la imagen: " + ex.getMessage());
         }
-
+        barraImagenes.setPreferredSize(new Dimension(800, 200));
     // Revalidamos y repintamos el panel para que los cambios sean visibles
     panelImagenes.revalidate();
     panelImagenes.repaint();
