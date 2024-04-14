@@ -113,6 +113,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         
         panelBotones.revalidate(); 
         panelBotones.repaint();
+        
     }
     
     }
