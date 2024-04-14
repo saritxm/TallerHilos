@@ -3,28 +3,33 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model;
+
 /**
  *
  * @author Carlos Riveros
  */
 import java.util.ArrayList;
 import java.io.File;
+
 public class Directorio {
     private ArrayList<File> imagenes;
-    
-    public Directorio (){
+
+    public Directorio() {
         this.imagenes = new ArrayList<>();
     }
-    public void llenarDirectorio(ArrayList<File> archivos){
-        if(archivos != null){
-            for(File archivo: archivos){
-               imagenes.add(archivo);
+
+    public void llenarDirectorio(ArrayList<File> archivos) {
+        if (archivos != null) {
+            for (File archivo : archivos) {
+                imagenes.add(archivo);
             }
         }
     }
+
     public ArrayList<File> getImagenes() {
         return imagenes;
     }
+
     public void setImagenes(ArrayList<File> imagenes) {
         this.imagenes = imagenes;
     }
