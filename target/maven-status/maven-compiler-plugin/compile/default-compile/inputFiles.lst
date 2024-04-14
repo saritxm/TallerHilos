@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\Carlos Riveros\Documents\Programación avanzada\TallerHilos\src\main\java\Model\Directorio.java
 C:\Users\Carlos Riveros\Documents\Programación avanzada\TallerHilos\src\main\java\Model\HiloCarrete.java
 C:\Users\Carlos Riveros\Documents\Programación avanzada\TallerHilos\src\main\java\Controller\Control.java
@@ -8,14 +7,3 @@ C:\Users\Carlos Riveros\Documents\Programación avanzada\TallerHilos\src\main\ja
 C:\Users\Carlos Riveros\Documents\Programación avanzada\TallerHilos\src\main\java\Model\Imagen.java
 C:\Users\Carlos Riveros\Documents\Programación avanzada\TallerHilos\src\main\java\Controller\Launcher.java
 C:\Users\Carlos Riveros\Documents\Programación avanzada\TallerHilos\src\main\java\View\VentanaVisor.java
-=======
-C:\Users\Sara\Documents\NetBeansProjects\TallerHilos\src\main\java\Model\Directorio.java
-C:\Users\Sara\Documents\NetBeansProjects\TallerHilos\src\main\java\Controller\Control.java
-C:\Users\Sara\Documents\NetBeansProjects\TallerHilos\src\main\java\Model\Imagen.java
-C:\Users\Sara\Documents\NetBeansProjects\TallerHilos\src\main\java\View\VentanaCatalogo.java
-C:\Users\Sara\Documents\NetBeansProjects\TallerHilos\src\main\java\Controller\Launcher.java
-C:\Users\Sara\Documents\NetBeansProjects\TallerHilos\src\main\java\Model\HiloCarrete.java
-C:\Users\Sara\Documents\NetBeansProjects\TallerHilos\src\main\java\Controller\ImagenThread.java
-C:\Users\Sara\Documents\NetBeansProjects\TallerHilos\src\main\java\View\FChooser.java
-C:\Users\Sara\Documents\NetBeansProjects\TallerHilos\src\main\java\View\VentanaVisor.java
->>>>>>> 9ab5c6134fba094c6058b64eda763fec5b158791

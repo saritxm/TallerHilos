@@ -5,11 +5,14 @@
 package View;
 
 import Model.Directorio;
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.*;
 
 
 /**
@@ -17,7 +20,7 @@ import javax.swing.JButton;
  * @author Sara
  */
 public class VentanaCatalogo extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form ventanaCatalogo
      */
@@ -34,12 +37,28 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         btnBuscarDir = new javax.swing.JButton();
         btnSalirVC = new javax.swing.JButton();
-        panelBotones = new javax.swing.JPanel();
-        jScrollBar1 = new javax.swing.JScrollBar();
-        jLabel2 = new javax.swing.JLabel();
+        barraImagenes = new javax.swing.JScrollPane();
+        panelImagenes = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,25 +71,24 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         btnSalirVC.setText("jButton2");
         jPanel1.add(btnSalirVC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 210, 70));
 
-        panelBotones.setBackground(new java.awt.Color(0, 0, 0, 0));
-
-        javax.swing.GroupLayout panelBotonesLayout = new javax.swing.GroupLayout(panelBotones);
-        panelBotones.setLayout(panelBotonesLayout);
-        panelBotonesLayout.setHorizontalGroup(
-            panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
+        javax.swing.GroupLayout panelImagenesLayout = new javax.swing.GroupLayout(panelImagenes);
+        panelImagenes.setLayout(panelImagenesLayout);
+        panelImagenesLayout.setHorizontalGroup(
+            panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 748, Short.MAX_VALUE)
         );
-        panelBotonesLayout.setVerticalGroup(
-            panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonesLayout.createSequentialGroup()
-                .addGap(0, 352, Short.MAX_VALUE)
-                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+        panelImagenesLayout.setVerticalGroup(
+            panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 218, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 850, 380));
+        barraImagenes.setViewportView(panelImagenes);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/fondo.jpg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 500));
+        jPanel1.add(barraImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 750, 220));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/fondo.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,32 +105,35 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane barraImagenes;
     public javax.swing.JButton btnBuscarDir;
     public javax.swing.JButton btnSalirVC;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JPanel panelBotones;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JPanel panelImagenes;
     // End of variables declaration//GEN-END:variables
     
- public void mostrarBotones(Directorio directorio) {
-        ArrayList<File> imagenes = directorio.getImagenes(); // Obtener la lista de imágenes del modelo
-        ArrayList<JButton> botones = crearBotones(imagenes);
-        for (JButton boton : botones) {
-            panelBotones.add(boton);
+ public void mostrarBotones(ArrayList<File> imagenes){
+     int i = 1;
+     int j = 0;
+     do{
+        for(File imagen:imagenes){
+            JButton boton = new JButton();
+            boton.setIcon(new ImageIcon(imagen.getAbsolutePath()));
+            boton.setPreferredSize(new Dimension(100, 100));
+            boton.setActionCommand("Boton"+i);
+            panelImagenes.add(boton);
+            i++;
+            if(i== imagenes.size()){
+                j=1;
+            }
         }
+     }
+     while(j == 0);
  }
- public ArrayList<JButton> crearBotones(ArrayList<File> imagenes) {
-        ArrayList<JButton> botones = new ArrayList<>();
-        for (File imagen : imagenes) {
-            ImageIcon icono = new ImageIcon(imagen.getAbsolutePath());
-            Image img = icono.getImage();
-            Image nuevaImg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
-            icono = new ImageIcon(nuevaImg);
-            JButton boton = new JButton(icono);
-            botones.add(boton);
-        }
-        return botones;
-    }
-
 }
