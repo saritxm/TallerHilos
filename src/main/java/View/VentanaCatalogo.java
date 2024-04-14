@@ -38,11 +38,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane6 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         btnBuscarDir = new javax.swing.JButton();
         btnSalirVC = new javax.swing.JButton();
@@ -112,31 +108,19 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPanel panelImagenes;
     // End of variables declaration//GEN-END:variables
     
 
-       public void mostrarBotones(Directorio directorio) {
-        ArrayList<File> imagenes = directorio.getImagenes();
+       public void mostrarBotones(ArrayList<File> imagenes) {
         for (File imagen : imagenes) {
             JButton boton = new JButton();
-            boton.setIcon(new ImageIcon (imagen.getAbsolutePath()));
-            boton.setPreferredSize(new Dimension(100,100));
-            panelBotones.add(boton); 
+            boton.setIcon(new ImageIcon(imagen.getAbsolutePath()));
+            boton.setPreferredSize(new Dimension(100, 100));
+            boton.setActionCommand(getName());
+            panelImagenes.add(boton);
         }
-        JScrollPane scrollPane = new JScrollPane(panelBotones);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        panelBotones.add(scrollPane);
-        
-        panelBotones.revalidate(); 
-        panelBotones.repaint();
-        
     }
-    
-    }
+}
 
 
