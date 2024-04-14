@@ -70,12 +70,6 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         btnSalirVC.setText("jButton2");
         jPanel1.add(btnSalirVC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 210, 70));
 
-        barraImagenes.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                barraImagenesComponentAdded(evt);
-            }
-        });
-
         javax.swing.GroupLayout panelImagenesLayout = new javax.swing.GroupLayout(panelImagenes);
         panelImagenes.setLayout(panelImagenesLayout);
         panelImagenesLayout.setHorizontalGroup(
@@ -109,10 +103,6 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void barraImagenesComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_barraImagenesComponentAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_barraImagenesComponentAdded
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane barraImagenes;
     public javax.swing.JButton btnBuscarDir;
@@ -123,33 +113,36 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     private javax.swing.JPanel panelImagenes;
     // End of variables declaration//GEN-END:variables
 
-    public void mostrarBotones(ArrayList<File> imagenes) {
+public void mostrarBotones(ArrayList<File> imagenes) {
+    // Limpiamos el panel de botones antes de agregar nuevos
+    panelImagenes.removeAll();
 
-    
-        // Recorremos la lista de imágenes y creamos un botón para cada una
-        for (File imagenFile : imagenes) {
-            try {
-                // Cargamos la imagen y la ajustamos al tamaño deseado
-                ImageIcon icono = new ImageIcon(imagenFile.getAbsolutePath());
-                Image imagen = icono.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-    
-                // Creamos un nuevo botón con la imagen
-                JButton boton = new JButton(new ImageIcon(imagen));
-    
-                // Establecemos un tooltip con el nombre del archivo de imagen
-                boton.setToolTipText(imagenFile.getName());
-    
-                // Agregamos el botón al panel de botones
-                panelImagenes.add(boton);
-            } catch (Exception ex) {
-                // Si hay algún error al cargar la imagen, simplemente lo ignoramos
-            }
+    // Creamos un nuevo FlowLayout con alineación izquierda y espacios entre componentes
+    FlowLayout layout = new FlowLayout(FlowLayout.LEFT, 10, 10);
+    panelImagenes.setLayout(layout);
+
+    // Recorremos la lista de imágenes y creamos un botón para cada una
+    for (File imagenFile : imagenes) {
+        try {
+            // Cargamos la imagen y la ajustamos al tamaño deseado
+            ImageIcon icono = new ImageIcon(imagenFile.getAbsolutePath());
+            Image imagen = icono.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+
+            // Creamos un nuevo botón con la imagen
+            JButton boton = new JButton(new ImageIcon(imagen));
+
+            // Establecemos un tooltip con el nombre del archivo de imagen
+            boton.setToolTipText(imagenFile.getName());
+
+            // Agregamos el botón al panel de botones
+            panelImagenes.add(boton);
+        } catch (Exception ex) {
+            System.err.println("Error al cargar la imagen: " + ex.getMessage());
         }
-    
-        // Revalidamos y repintamos el panel para que los cambios sean visibles
-        panelImagenes.revalidate();
-        panelImagenes.repaint();
     }
-    
+
+    // Revalidamos y repintamos el panel para que los cambios sean visibles
+    panelImagenes.revalidate();
+    panelImagenes.repaint();
 }
 
