@@ -55,7 +55,7 @@ public class Control implements ActionListener {
             if (directorioSeleccionado != null) {
                 ArrayList<File> imagenes = vistaImagenes(directorioSeleccionado);
                 directorio.llenarDirectorio(imagenes);
-                vCatalogo.mostrarBotones(directorio);
+                vCatalogo.mostrarBotones(directorio.getImagenes());
             }
         }
         // Abrir Visor
