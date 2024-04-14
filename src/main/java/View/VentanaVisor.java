@@ -4,6 +4,7 @@
  */
 package View;
 
+import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
 
@@ -114,12 +115,13 @@ public class VentanaVisor extends javax.swing.JFrame {
     public javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
 
-    
+
     public void mostrarImagen(File imagen) {
-        LabelImagen.setIcon(new ImageIcon(imagen.getPath()));
+        ImageIcon icono = new ImageIcon(imagen.getPath());
+        Image imagenEscalada = icono.getImage().getScaledInstance(530, 430, Image.SCALE_SMOOTH);
+        LabelImagen.setIcon(new ImageIcon(imagenEscalada));
         repaint();
     }
-
     public void aviso(String x){
         System.out.println(x);
     }

@@ -38,9 +38,7 @@ public class HiloYVentana implements ActionListener{
         this.h = h;
     }
 
- //   private void barraProgreso(int a){
-   //   v.jProgressBar1.setValue(a);
-    //}
+
     private void barraProgreso(int a){
         int porcentaje = (a * 100) / v.jProgressBar1.getMaximum(); // Calcular el porcentaje
         v.jProgressBar1.setValue(a);
