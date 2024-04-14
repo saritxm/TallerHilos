@@ -79,6 +79,7 @@ public class Control implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // Boton seleccionar directorio
         if (e.getSource() == this.vCatalogo.btnBuscarDir) {
+            vCatalogo.botones.clear();
             String directorioSeleccionado = fileChooser.seleccionarDirectorio();
             if (directorioSeleccionado != null) {
                 ArrayList<File> imagenes = vistaImagenes(directorioSeleccionado);
@@ -93,6 +94,7 @@ public class Control implements ActionListener {
         else if (vCatalogo.botones.contains(e.getSource())) {
             // Obtener el index de la imagen seleccionada
             int y = vCatalogo.botones.indexOf(e.getSource());
+            System.out.println(y);
             // Creacion de un controlador (Hilo y ventana) (Ver clase HiloYVentana)
             new HiloYVentana(directorio.getImagenes(), this, e.getActionCommand(), y);
         }

@@ -31,6 +31,7 @@ public class HiloCarrete extends Thread {
      */
     public HiloCarrete(ArrayList<File> x, Consumer<File> metodoImagenes, Consumer<String> aviso, int incio,
             Consumer<Integer> progress) {
+
         this.imagenes = new ArrayList<>(x);
         this.metodoImagenes = metodoImagenes;
         this.aviso = aviso;
@@ -61,6 +62,7 @@ public class HiloCarrete extends Thread {
                     }
                     // Index de la imagen a mostrar
                     int idx = (inicio + i) % imagenes.size();
+                    
                     // Mostrar imagen
                     metodoImagenes.accept(imagenes.get(idx));
                     // Actualizar progreso
