@@ -153,7 +153,6 @@ public void mostrarBotones(ArrayList<File> imagenes) {
     panelImagenes.revalidate();
     panelImagenes.repaint();
     barraImagenes.setVisible(true);
-    System.out.println(barraImagenes.getWidth()+","+ barraImagenes.getHeight());
     }
 }
 }
