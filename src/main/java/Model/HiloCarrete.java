@@ -23,6 +23,21 @@ public class HiloCarrete extends Thread {
         this.progress = progress;
     }
 
+    public HiloCarrete(ArrayList<File> aux, Consumer<File> metodoImagenes2, Consumer<String> aviso2, int inicio2,
+            Object progress2) {
+        //TODO Auto-generated constructor stub
+    }
+
+    public HiloCarrete(ArrayList<File> aux, Consumer<File> metodoImagenes2, Consumer<String> aviso2, int inicio2,
+            Object progress2) {
+        //TODO Auto-generated constructor stub
+    }
+
+    public HiloCarrete(ArrayList<File> aux, Consumer<File> metodoImagenes2, Consumer<String> aviso2, int inicio2,
+            Object progress2) {
+        //TODO Auto-generated constructor stub
+    }
+
     @Override
     public void run() {
         try {

@@ -38,14 +38,23 @@ public class HiloYVentana implements ActionListener{
         this.h = h;
     }
 
+ //   private void barraProgreso(int a){
+   //   v.jProgressBar1.setValue(a);
+    //}
     private void barraProgreso(int a){
+        int porcentaje = (a * 100) / v.jProgressBar1.getMaximum(); // Calcular el porcentaje
         v.jProgressBar1.setValue(a);
+        v.jProgressBar1.setString(porcentaje + "%"); // Establecer el porcentaje como texto en el progress bar
+        v.jProgressBar1.setStringPainted(true); // Habilitar la visualización del texto en el progress bar
     }
+    
+    
 
     public HiloYVentana(ArrayList<File> aux, Control p, String imagenSelectFile, int inicio){
         this.principal = p;                                             //Controlador principal 
-        this.v = new VentanaVisor();                                      //Ventana visor
+       this.v = new VentanaVisor();                                      //Ventana visor
         this.h = new HiloCarrete(aux, v::mostrarImagen, v::aviso, inicio, this::barraProgreso);      //Creacion del hilo
+
         //ActionListeners
         this.v.btnContinuar.addActionListener(this);                   
         this.v.btnDetener.addActionListener(this);
