@@ -4,9 +4,7 @@
  */
 package View;
 
-import java.awt.Image;
 import java.io.File;
-
 import javax.swing.ImageIcon;
 
 /**
@@ -14,6 +12,16 @@ import javax.swing.ImageIcon;
  * @author Sara
  */
 public class VentanaVisor extends javax.swing.JFrame {
+
+    public int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     /**
      * Creates new form VentanaVisor
@@ -50,11 +58,6 @@ public class VentanaVisor extends javax.swing.JFrame {
         btnContinuar.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
         btnContinuar.setForeground(new java.awt.Color(255, 255, 255));
         btnContinuar.setText("CONTINUAR");
-        btnContinuar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnContinuarActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 190, 30));
 
         btnSalirVisor.setBackground(new java.awt.Color(0, 0, 28));
@@ -82,11 +85,6 @@ public class VentanaVisor extends javax.swing.JFrame {
         btnDetener.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
         btnDetener.setForeground(new java.awt.Color(255, 255, 255));
         btnDetener.setText("DETENER");
-        btnDetener.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDetenerActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnDetener, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 170, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/estrellas (1).jpg"))); // NOI18N
@@ -97,13 +95,13 @@ public class VentanaVisor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDetenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetenerActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDetenerActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnContinuarActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,9 +140,9 @@ public class VentanaVisor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelImagen;
-    private javax.swing.JButton btnContinuar;
-    private javax.swing.JButton btnDetener;
-    private javax.swing.JButton btnSalirVisor;
+    public javax.swing.JButton btnContinuar;
+    public javax.swing.JButton btnDetener;
+    public javax.swing.JButton btnSalirVisor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -155,6 +153,10 @@ public class VentanaVisor extends javax.swing.JFrame {
     public void mostrarImagen(File imagen) {
         LabelImagen.setIcon(new ImageIcon(imagen.getPath()));
         repaint();
+    }
+
+    public void cerrar(){
+        dispose();
     }
     
 }

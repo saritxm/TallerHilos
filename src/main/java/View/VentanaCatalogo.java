@@ -5,6 +5,7 @@
 package View;
 
 import Model.Directorio;
+
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionListener;
@@ -12,7 +13,7 @@ import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.*;
+import javax.swing.JScrollPane;
 
 
 /**
@@ -118,22 +119,24 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     private javax.swing.JPanel panelImagenes;
     // End of variables declaration//GEN-END:variables
     
- public void mostrarBotones(ArrayList<File> imagenes){
-     int i = 1;
-     int j = 0;
-     do{
-        for(File imagen:imagenes){
+
+       public void mostrarBotones(Directorio directorio) {
+        ArrayList<File> imagenes = directorio.getImagenes();
+        for (File imagen : imagenes) {
             JButton boton = new JButton();
-            boton.setIcon(new ImageIcon(imagen.getAbsolutePath()));
-            boton.setPreferredSize(new Dimension(100, 100));
-            boton.setActionCommand("Boton"+i);
-            panelImagenes.add(boton);
-            i++;
-            if(i== imagenes.size()){
-                j=1;
-            }
+            boton.setIcon(new ImageIcon (imagen.getAbsolutePath()));
+            boton.setPreferredSize(new Dimension(100,100));
+            panelBotones.add(boton); 
         }
-     }
-     while(j == 0);
- }
-}
+        JScrollPane scrollPane = new JScrollPane(panelBotones);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        panelBotones.add(scrollPane);
+        
+        panelBotones.revalidate(); 
+        panelBotones.repaint();
+        
+    }
+    
+    }
+
+
