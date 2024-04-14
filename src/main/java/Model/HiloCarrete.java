@@ -9,44 +9,63 @@ public class HiloCarrete extends Thread {
     private ArrayList<File> imagenes;
     private Consumer<File> metodoImagenes;
     private Consumer<String> aviso;
+    private Consumer<Integer> progress;
+    private final Object lock = new Object();
+    private boolean paused = false;
     private boolean running = true;
+    private int inicio;
 
-    public HiloCarrete(ArrayList<File> x, Consumer<File> metodoImagenes, Consumer<String> aviso) {
-        this.imagenes = new ArrayList<>(x);   
+    public HiloCarrete(ArrayList<File> x, Consumer<File> metodoImagenes, Consumer<String> aviso, int incio, Consumer<Integer> progress) {
+        this.imagenes = new ArrayList<>(x);
         this.metodoImagenes = metodoImagenes;
+        this.aviso = aviso;
+        this.inicio = incio;
+        this.progress = progress;
     }
 
     @Override
     public void run() {
         try {
             while (running) {
-                for (File file : imagenes) {
-                    metodoImagenes.accept(file);
-                    aviso.accept(file.getPath());
-                    sleep(500);
+                for (int i = 0; i < imagenes.size(); i++) {
                     if(!running) break;
-                }  
+                    synchronized (lock) {
+                        while (paused) {
+                            try {
+                                lock.wait();
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt(); 
+                                return;
+                            }
+                           }   }
+                    int idx = (inicio + i) % imagenes.size();
+                    metodoImagenes.accept(imagenes.get(idx));
+                    progress.accept(idx);
+                    aviso.accept("Mostrando: " + imagenes.get(idx).getPath());
+                    Thread.sleep(500); // Controla la velocidad de visualización
+                }
             }
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-        
-    }
-
-    public void pause(){
-        try {
-            wait();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
     }
 
-    public void resm(){
-        notify();
+    public void pause() {
+        synchronized (lock) {
+            paused = true;
+        }
     }
 
-    public void kill(){
-        running = false;
+    public void res() {
+        synchronized (lock) {
+            paused = false;
+            lock.notify();
+        }
     }
 
+    public void kill() {
+        synchronized (lock) {
+            running = false;
+            paused = false; 
+            lock.notifyAll(); }}
 }

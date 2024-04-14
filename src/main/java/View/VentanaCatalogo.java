@@ -24,10 +24,12 @@ import javax.swing.JScrollPane;
  */
 public class VentanaCatalogo extends javax.swing.JFrame {
     
+    public ArrayList<JButton> botones; 
     /**
      * Creates new form ventanaCatalogo
      */
     public VentanaCatalogo() {
+        botones = new ArrayList<>();
         initComponents();
     }
 
@@ -131,9 +133,10 @@ public void mostrarBotones(ArrayList<File> imagenes) {
             JButton boton = new JButton(new ImageIcon(imagen));
 
             // Establecemos un tooltip con el nombre del archivo de imagen
-            boton.setToolTipText(imagenFile.getName());
+            boton.setActionCommand(imagenFile.getPath());
 
             // Agregamos el botón al panel de botones
+            botones.add(boton);
             panelImagenes.add(boton);
         } catch (Exception ex) {
             System.err.println("Error al cargar la imagen: " + ex.getMessage());

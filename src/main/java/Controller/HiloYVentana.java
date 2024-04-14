@@ -38,16 +38,26 @@ public class HiloYVentana implements ActionListener{
         this.h = h;
     }
 
-    public HiloYVentana(ArrayList<File> aux, Control p){
-        this.principal = p;                                    //Controlador principal 
-        this.v = new VentanaVisor();                           //Ventana visor
-        this.h = new HiloCarrete(aux, v::mostrarImagen, v::aviso);       //Creacion del hilo
-        this.v.btnContinuar.addActionListener(this);           //ActionListeners
+    private void barraProgreso(int a){
+        v.jProgressBar1.setValue(a);
+    }
+
+    public HiloYVentana(ArrayList<File> aux, Control p, String imagenSelectFile, int inicio){
+        this.principal = p;                                             //Controlador principal 
+        this.v = new VentanaVisor();                                      //Ventana visor
+        this.h = new HiloCarrete(aux, v::mostrarImagen, v::aviso, inicio, this::barraProgreso);      //Creacion del hilo
+        //ActionListeners
+        this.v.btnContinuar.addActionListener(this);                   
         this.v.btnDetener.addActionListener(this);
         this.v.btnSalirVisor.addActionListener(this);
-        this.principal.avisos.consola("HILO # "+h.threadId() + "Imagen seleccionada: ");
-        this.principal.avisos.inicioHilo(null, (int) h.threadId()); //Aviso
-        h.run();
+        
+        //Avisos
+        this.principal.avisos.consola("HILO # "+h.threadId() + "Imagen seleccionada: "+ imagenSelectFile);
+        this.principal.avisos.inicioHilo(imagenSelectFile, (int) h.threadId()); 
+        //Inicio del hilo y de la ventana
+        v.jProgressBar1.setMaximum(aux.size());
+        v.jProgressBar1.setValue(inicio);
+        h.start();
         v.setVisible(true);
     }   
 
@@ -60,14 +70,20 @@ public class HiloYVentana implements ActionListener{
         //Continuar hilo
         else if(e.getSource()==v.btnContinuar){
             principal.avisos.continuarHilo((int) h.threadId(), h.isAlive());
-            h.resm();
+            h.res();
         }
         //Salir del hilo
         else if(e.getSource()==v.btnSalirVisor){
             principal.avisos.muerteHilo((int)h.threadId());
             v.dispose();
             h.kill();
-            principal.visores.remove(this);
+            try {
+                h.join();
+            } catch (InterruptedException e1) {
+                principal.avisos.consola(e1.getMessage());
+                
+            }
+            principal.avisos.consola("el hilo # "+h.threadId()+" Esta vivo?"+h.isAlive());
         }
     }
     
