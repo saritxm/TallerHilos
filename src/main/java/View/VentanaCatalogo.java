@@ -112,7 +112,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     
 
-       public void mostrarBotones(ArrayList<File> imagenes) {
+    public void mostrarBotones(ArrayList<File> imagenes) {
         for (File imagen : imagenes) {
             JButton boton = new JButton();
             boton.setIcon(new ImageIcon(imagen.getAbsolutePath()));
@@ -120,7 +120,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
             boton.setActionCommand(getName());
             panelImagenes.add(boton);
         }
-    }
+}
 }
 
 
