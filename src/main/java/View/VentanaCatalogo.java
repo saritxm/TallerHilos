@@ -109,7 +109,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         }
         JScrollPane scrollPane = new JScrollPane(panelBotones);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        
+        panelBotones.add(scrollPane);
         
         panelBotones.revalidate(); 
         panelBotones.repaint();
