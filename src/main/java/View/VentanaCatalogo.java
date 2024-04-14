@@ -128,6 +128,7 @@ public void mostrarBotones(ArrayList<File> imagenes) {
             JButton boton = new JButton();
             boton.setIcon(icono);
             boton.setPreferredSize(new Dimension(150, 180));
+            boton.setActionCommand(imagenFile.getName());
             // Agregamos el botón al panel de botones
             panelImagenes.add(boton);
         } catch (Exception ex) {
