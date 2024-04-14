@@ -4,11 +4,6 @@
  */
 package View;
 
-import java.awt.Image;
-import java.io.File;
-
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author Sara
@@ -33,11 +28,11 @@ public class VentanaVisor extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jProgressBar1 = new javax.swing.JProgressBar();
-        btnContinuar = new javax.swing.JButton();
-        btnSalirVisor = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         LabelImagen = new javax.swing.JLabel();
-        btnDetener = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,22 +41,22 @@ public class VentanaVisor extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 202, 30));
 
-        btnContinuar.setBackground(new java.awt.Color(0, 0, 28));
-        btnContinuar.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
-        btnContinuar.setForeground(new java.awt.Color(255, 255, 255));
-        btnContinuar.setText("CONTINUAR");
-        btnContinuar.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setBackground(new java.awt.Color(0, 0, 28));
+        jButton2.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("CONTINUAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnContinuarActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 190, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 190, 30));
 
-        btnSalirVisor.setBackground(new java.awt.Color(0, 0, 28));
-        btnSalirVisor.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
-        btnSalirVisor.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalirVisor.setText("SALIR");
-        jPanel1.add(btnSalirVisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 510, 170, 30));
+        jButton3.setBackground(new java.awt.Color(0, 0, 28));
+        jButton3.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("SALIR");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 510, 170, 30));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0, 0));
 
@@ -78,16 +73,16 @@ public class VentanaVisor extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 530, 430));
 
-        btnDetener.setBackground(new java.awt.Color(0, 0, 28));
-        btnDetener.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
-        btnDetener.setForeground(new java.awt.Color(255, 255, 255));
-        btnDetener.setText("DETENER");
-        btnDetener.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setBackground(new java.awt.Color(0, 0, 28));
+        jButton1.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("DETENER");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDetenerActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnDetener, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 170, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 170, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/estrellas (1).jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 560));
@@ -97,13 +92,13 @@ public class VentanaVisor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDetenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetenerActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDetenerActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnContinuarActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,19 +137,13 @@ public class VentanaVisor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelImagen;
-    public javax.swing.JButton btnContinuar;
-    public javax.swing.JButton btnDetener;
-    public javax.swing.JButton btnSalirVisor;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
 
-    
-    public void mostrarImagen(File imagen) {
-        LabelImagen.setIcon(new ImageIcon(imagen.getPath()));
-        repaint();
-    }
-    
 }
