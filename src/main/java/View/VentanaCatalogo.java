@@ -4,11 +4,13 @@
  */
 package View;
 
+import Model.Directorio;
 import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
 
 /**
  *
@@ -107,14 +109,14 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     private javax.swing.JPanel panelBotones;
     // End of variables declaration//GEN-END:variables
     
- public void mostrarBotones(ArrayList<File> imagenes) {
+ public void mostrarBotones(Directorio directorio) {
+        ArrayList<File> imagenes = directorio.getImagenes(); // Obtener la lista de imágenes del modelo
         ArrayList<JButton> botones = crearBotones(imagenes);
         for (JButton boton : botones) {
             panelBotones.add(boton);
         }
-    }
-
-    private ArrayList<JButton> crearBotones(ArrayList<File> imagenes) {
+ }
+ public ArrayList<JButton> crearBotones(ArrayList<File> imagenes) {
         ArrayList<JButton> botones = new ArrayList<>();
         for (File imagen : imagenes) {
             ImageIcon icono = new ImageIcon(imagen.getAbsolutePath());
