@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.io.File;
 public class Directorio {
     private ArrayList<File> imagenes;
+    
     public Directorio (){
         this.imagenes = new ArrayList<>();
     }
@@ -21,5 +22,11 @@ public class Directorio {
                imagenes.add(archivo);
             }
         }
+    }
+    public ArrayList<File> getImagenes() {
+        return imagenes;
+    }
+    public void setImagenes(ArrayList<File> imagenes) {
+        this.imagenes = imagenes;
     }
 }

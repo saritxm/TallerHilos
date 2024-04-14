@@ -1,14 +1,33 @@
 package Model;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.function.Consumer;
+
 public class HiloCarrete extends Thread {
 
-    public HiloCarrete() {
-        
+    private ArrayList<File> imagenes;
+    private Consumer<File> metodoImagenes;
+
+    public HiloCarrete(ArrayList<File> x, Consumer<File> metodoImagenes) {
+        this.imagenes = new ArrayList<>(x);   
+        this.metodoImagenes = metodoImagenes;
+        run();
     }
 
     @Override
     public void run() {
-        
+        try {
+            while (true) {
+                for (File file : imagenes) {
+                    metodoImagenes.accept(file);
+                    System.out.println(file.getPath());
+                    sleep(500);
+                }  
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
         
     }
 
@@ -16,7 +35,6 @@ public class HiloCarrete extends Thread {
         try {
             wait();
         } catch (InterruptedException e) {
-            
             e.printStackTrace();
         }
     }
