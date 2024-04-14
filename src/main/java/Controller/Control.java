@@ -15,7 +15,7 @@ public class Control implements ActionListener {
     private Directorio directorio;
     private FChooser fileChooser;
     private VentanaCatalogo vCatalogo;
-    private ArrayList<HiloYVentana> visores;
+    public ArrayList<HiloYVentana> visores;
 
     public Control() {
         this.directorio = new Directorio();
@@ -45,14 +45,6 @@ public class Control implements ActionListener {
         this.vCatalogo.setVisible(true);
     }
 
-    private void actualizarIndex() {
-        int x = 0;
-        for (HiloYVentana i : visores) {
-            i.setId(x);
-            x++;
-        }
-    }
-
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.vCatalogo.btnBuscarDir) {
             // directorio.llenarDirectorio(vistaImagenes(fileChooser.seleccionarDirectorio()));
@@ -65,8 +57,10 @@ public class Control implements ActionListener {
         }
         // Abrir Visor
         else if (e.getSource() == "") {
-            visores.add(new HiloYVentana(directorio.getImagenes()));
-            actualizarIndex();
+            visores.add(new HiloYVentana(directorio.getImagenes(),this));
+        }
+        else  if (e.getSource() == vCatalogo.btnSalirVC){
+            vCatalogo.dispose();
         }
         
     }
