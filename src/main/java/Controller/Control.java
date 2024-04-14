@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Directorio;
 import Model.HiloCarrete;
+import View.Avisos;
 import View.FChooser;
 import View.VentanaCatalogo;
 import View.VentanaVisor;
@@ -15,6 +16,7 @@ public class Control implements ActionListener {
     private Directorio directorio;
     private FChooser fileChooser;
     private VentanaCatalogo vCatalogo;
+    public Avisos avisos;
     public ArrayList<HiloYVentana> visores;
 
     public Control() {
@@ -22,6 +24,7 @@ public class Control implements ActionListener {
         this.fileChooser = new FChooser();
         this.vCatalogo = new VentanaCatalogo();
         this.visores = new ArrayList<>();
+        this.avisos     = new Avisos();
         this.vCatalogo.btnBuscarDir.addActionListener(this);
         iniciar();
     }
@@ -35,7 +38,7 @@ public class Control implements ActionListener {
             if (archivo.isFile() && (archivo.getName().toLowerCase().endsWith(".jpg")
                     || archivo.getName().toLowerCase().endsWith(".png"))) {
                 imagenes.add(archivo);
-                System.out.println(archivo.getName());
+                avisos.consola(archivo.getPath());
             }
         }
         return imagenes;
