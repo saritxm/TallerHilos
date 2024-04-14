@@ -27,8 +27,10 @@ public class Control implements ActionListener {
         ArrayList<File> imagenes = new ArrayList<>();
         System.out.println(path); 
         for(File archivo: archivos){
-            imagenes.add(archivo);
-            System.out.println(archivo.getPath());
+            if (archivo.isFile() && (archivo.getName().toLowerCase().endsWith(".jpg") || archivo.getName().toLowerCase().endsWith(".png") )){
+                imagenes.add(archivo);
+                System.out.println(archivo.getName());
+            }
         }
         return imagenes;
     }
