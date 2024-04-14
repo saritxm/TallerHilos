@@ -17,13 +17,11 @@ public class Control {
     private Directorio directorio;
     private FChooser fileChooser;
     private VentanaCatalogo vCatalogo;
-    private VentanaVisor vVisor;
     
     public Control(){
         this.directorio = new Directorio();
         this.fileChooser = new FChooser();
         this.vCatalogo = new VentanaCatalogo();
-        this.vVisor = new VentanaVisor();
         iniciar();
     }
 
@@ -36,14 +34,9 @@ public class Control {
         return imagenes;
     }
 
-    private void actualizarImagen(File x){
-        vVisor.mostrarImagen(new ImageIcon(x.getPath()));
-    }
-    
     public void iniciar(){
         directorio.llenarDirectorio(vistaImagenes());
-        vVisor.setVisible(true);
-        new HiloCarrete(directorio.getImagenes(),this::actualizarImagen);
+        vCatalogo.setVisible(true);
     }
 
 }
