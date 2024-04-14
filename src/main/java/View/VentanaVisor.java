@@ -4,6 +4,10 @@
  */
 package View;
 
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Sara
@@ -145,5 +149,11 @@ public class VentanaVisor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
+
+    
+    public void mostrarImagen(ImageIcon imagen) {
+        LabelImagen.setIcon(imagen);
+        repaint();
+    }
     
 }
