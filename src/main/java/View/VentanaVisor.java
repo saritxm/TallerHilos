@@ -4,6 +4,9 @@
  */
 package View;
 
+import java.io.File;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Sara
