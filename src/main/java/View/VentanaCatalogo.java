@@ -29,6 +29,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     public VentanaCatalogo() {
         botones = new ArrayList<>();
         setResizable(false);
+        setTitle("Catalogo de imágenes");
         initComponents();
     }
 

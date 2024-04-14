@@ -29,6 +29,7 @@ public class VentanaVisor extends javax.swing.JFrame {
      */
     public VentanaVisor() {
         setResizable(false);
+        setTitle("Visor de imágenes");
         initComponents();
     }
 
