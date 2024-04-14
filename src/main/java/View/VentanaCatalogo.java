@@ -117,6 +117,7 @@ public void mostrarBotones(ArrayList<File> imagenes) {
     // Limpiamos el panel de botones antes de agregar nuevos
     panelImagenes.removeAll();
 
+<<<<<<< HEAD
     // Creamos un nuevo FlowLayout con alineación izquierda y espacios entre componentes
     FlowLayout layout = new FlowLayout(FlowLayout.LEFT, 10, 10);
     panelImagenes.setLayout(layout);
@@ -138,6 +139,28 @@ public void mostrarBotones(ArrayList<File> imagenes) {
             panelImagenes.add(boton);
         } catch (Exception ex) {
             System.err.println("Error al cargar la imagen: " + ex.getMessage());
+=======
+    
+        // Recorremos la lista de imágenes y creamos un botón para cada una
+        for (File imagenFile : imagenes) {
+            try {
+                // Cargamos la imagen y la ajustamos al tamaño deseado
+                ImageIcon icono = new ImageIcon(imagenFile.getAbsolutePath());
+                Image imagen = icono.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+    
+                // Creamos un nuevo botón con la imagen
+                JButton boton = new JButton(new ImageIcon(imagen));
+    
+                // Establecemos un tooltip con el nombre del archivo de imagen
+                boton.setToolTipText(imagenFile.getName());
+    
+                // Agregamos el botón al panel de botones
+                panelImagenes.add(boton);
+                System.out.println("Boton creado");
+            } catch (Exception ex) {
+                // Si hay algún error al cargar la imagen, simplemente lo ignoramos
+            }
+>>>>>>> 2833c872e83af33e646277991c89be7d82294315
         }
     }
 

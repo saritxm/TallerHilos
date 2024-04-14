@@ -39,25 +39,32 @@ public class HiloYVentana implements ActionListener{
     }
 
     public HiloYVentana(ArrayList<File> aux, Control p){
-        this.principal = p;
-
-        this.v = new VentanaVisor();
-        this.h = new HiloCarrete(aux, v::mostrarImagen);
-        this.v.btnContinuar.addActionListener(this);
+        this.principal = p;                                    //Controlador principal 
+        this.v = new VentanaVisor();                           //Ventana visor
+        this.h = new HiloCarrete(aux, v::mostrarImagen, v::aviso);       //Creacion del hilo
+        this.v.btnContinuar.addActionListener(this);           //ActionListeners
         this.v.btnDetener.addActionListener(this);
         this.v.btnSalirVisor.addActionListener(this);
-    }
+        this.principal.avisos.consola("HILO # "+h.threadId() + "Imagen seleccionada: ");
+        this.principal.avisos.inicioHilo(null, (int) h.threadId()); //Aviso
+        h.run();
+        v.setVisible(true);
+    }   
 
     public void actionPerformed(ActionEvent e){
         //Pausar hilo
-        if(e.getSource()==v.btnDetener){
+        if(e.getSource()==v.btnDetener){ 
+            principal.avisos.pauseHilo((int) h.threadId());
             h.pause();
         }
         //Continuar hilo
         else if(e.getSource()==v.btnContinuar){
+            principal.avisos.continuarHilo((int) h.threadId(), h.isAlive());
             h.resm();
         }
+        //Salir del hilo
         else if(e.getSource()==v.btnSalirVisor){
+            principal.avisos.muerteHilo((int)h.threadId());
             v.dispose();
             h.kill();
             principal.visores.remove(this);

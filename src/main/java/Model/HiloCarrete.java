@@ -8,12 +8,12 @@ public class HiloCarrete extends Thread {
 
     private ArrayList<File> imagenes;
     private Consumer<File> metodoImagenes;
+    private Consumer<String> aviso;
     private boolean running = true;
 
-    public HiloCarrete(ArrayList<File> x, Consumer<File> metodoImagenes) {
+    public HiloCarrete(ArrayList<File> x, Consumer<File> metodoImagenes, Consumer<String> aviso) {
         this.imagenes = new ArrayList<>(x);   
         this.metodoImagenes = metodoImagenes;
-        run();
     }
 
     @Override
@@ -22,8 +22,9 @@ public class HiloCarrete extends Thread {
             while (running) {
                 for (File file : imagenes) {
                     metodoImagenes.accept(file);
-                    System.out.println(file.getPath());
+                    aviso.accept(file.getPath());
                     sleep(500);
+                    if(!running) break;
                 }  
             }
         } catch (Exception e) {
@@ -47,4 +48,5 @@ public class HiloCarrete extends Thread {
     public void kill(){
         running = false;
     }
+
 }
