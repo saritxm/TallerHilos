@@ -28,6 +28,7 @@ public class VentanaVisor extends javax.swing.JFrame {
      * Creates new form VentanaVisor
      */
     public VentanaVisor() {
+        setResizable(false);
         initComponents();
     }
 
