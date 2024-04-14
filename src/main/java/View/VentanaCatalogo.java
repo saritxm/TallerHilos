@@ -4,18 +4,15 @@
  */
 package View;
 
-import Model.Directorio;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JScrollPane;
 
 
 /**
@@ -25,11 +22,14 @@ import javax.swing.JScrollPane;
 public class VentanaCatalogo extends javax.swing.JFrame {
     
     public ArrayList<JButton> botones; 
+    
     /**
      * Creates new form ventanaCatalogo
      */
     public VentanaCatalogo() {
         botones = new ArrayList<>();
+        setResizable(false);
+        setTitle("Catalogo de imágenes");
         initComponents();
     }
 
@@ -42,6 +42,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btnBuscarDir = new javax.swing.JButton();
@@ -85,7 +86,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
 
         barraImagenes.setViewportView(panelImagenes);
 
-        jPanel1.add(barraImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 750, 220));
+        jPanel1.add(barraImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 750, 200));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/fondo.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -103,16 +104,19 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         );
         barraImagenes.setVisible(false);
         pack();
+        setSize(new Dimension(830,400));
+        panelImagenes.setBackground(new Color(246, 133, 122));
+
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane barraImagenes;
+    private javax.swing.JPanel panelImagenes ;
     public javax.swing.JButton btnBuscarDir;
     public javax.swing.JButton btnSalirVC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel panelImagenes;
+    private javax.swing.JScrollPane barraImagenes;
     // End of variables declaration//GEN-END:variables
 
 public void mostrarBotones(ArrayList<File> imagenes) {
@@ -138,14 +142,18 @@ public void mostrarBotones(ArrayList<File> imagenes) {
             // Agregamos el botón al panel de botones
             botones.add(boton);
             panelImagenes.add(boton);
-            barraImagenes.setVisible(true);
+            //barraImagenes.setVisible(true);
         } catch (Exception ex) {
             System.err.println("Error al cargar la imagen: " + ex.getMessage());
         }
-        barraImagenes.setPreferredSize(new Dimension(800, 200));
+         barraImagenes.setPreferredSize(new Dimension(800, 200));
+
+
     // Revalidamos y repintamos el panel para que los cambios sean visibles
     panelImagenes.revalidate();
     panelImagenes.repaint();
+    barraImagenes.setVisible(true);
+    System.out.println(barraImagenes.getWidth()+","+ barraImagenes.getHeight());
     }
 }
 }
