@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
-import javax.swing.*;
+import javax.swing.JButton;
 import javax.swing.JScrollPane;
 
 
@@ -70,14 +70,6 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         btnSalirVC.setText("jButton2");
         jPanel1.add(btnSalirVC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 210, 70));
 
-        barraImagenes.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                barraImagenesComponentAdded(evt);
-            }
-        });
-
-        panelImagenes.setBackground(new java.awt.Color(255, 255, 204));
-
         javax.swing.GroupLayout panelImagenesLayout = new javax.swing.GroupLayout(panelImagenes);
         panelImagenes.setLayout(panelImagenesLayout);
         panelImagenesLayout.setHorizontalGroup(
@@ -86,16 +78,16 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         );
         panelImagenesLayout.setVerticalGroup(
             panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 318, Short.MAX_VALUE)
+            .addGap(0, 218, Short.MAX_VALUE)
         );
 
         barraImagenes.setViewportView(panelImagenes);
 
-        jPanel1.add(barraImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 750, 320));
+        jPanel1.add(barraImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 750, 220));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/fondo.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 500));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,15 +97,11 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void barraImagenesComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_barraImagenesComponentAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_barraImagenesComponentAdded
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane barraImagenes;
@@ -125,16 +113,59 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     private javax.swing.JPanel panelImagenes;
     // End of variables declaration//GEN-END:variables
 
-    public void mostrarBotones(ArrayList<File> imagenes) {
+public void mostrarBotones(ArrayList<File> imagenes) {
+    // Limpiamos el panel de botones antes de agregar nuevos
+    panelImagenes.removeAll();
 
-        for (File imagen : imagenes) {
-            JButton boton = new JButton();
-            boton.setIcon(new ImageIcon(imagen.getAbsolutePath()));
-            boton.setPreferredSize(new Dimension(100, 100)); // Tamaño del botón
+<<<<<<< HEAD
+    // Creamos un nuevo FlowLayout con alineación izquierda y espacios entre componentes
+    FlowLayout layout = new FlowLayout(FlowLayout.LEFT, 10, 10);
+    panelImagenes.setLayout(layout);
+
+    // Recorremos la lista de imágenes y creamos un botón para cada una
+    for (File imagenFile : imagenes) {
+        try {
+            // Cargamos la imagen y la ajustamos al tamaño deseado
+            ImageIcon icono = new ImageIcon(imagenFile.getAbsolutePath());
+            Image imagen = icono.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+
+            // Creamos un nuevo botón con la imagen
+            JButton boton = new JButton(new ImageIcon(imagen));
+
+            // Establecemos un tooltip con el nombre del archivo de imagen
+            boton.setToolTipText(imagenFile.getName());
+
+            // Agregamos el botón al panel de botones
             panelImagenes.add(boton);
-            barraImagenes.add(panelImagenes);
+        } catch (Exception ex) {
+            System.err.println("Error al cargar la imagen: " + ex.getMessage());
+=======
+    
+        // Recorremos la lista de imágenes y creamos un botón para cada una
+        for (File imagenFile : imagenes) {
+            try {
+                // Cargamos la imagen y la ajustamos al tamaño deseado
+                ImageIcon icono = new ImageIcon(imagenFile.getAbsolutePath());
+                Image imagen = icono.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+    
+                // Creamos un nuevo botón con la imagen
+                JButton boton = new JButton(new ImageIcon(imagen));
+    
+                // Establecemos un tooltip con el nombre del archivo de imagen
+                boton.setToolTipText(imagenFile.getName());
+    
+                // Agregamos el botón al panel de botones
+                panelImagenes.add(boton);
+                System.out.println("Boton creado");
+            } catch (Exception ex) {
+                // Si hay algún error al cargar la imagen, simplemente lo ignoramos
+            }
+>>>>>>> 2833c872e83af33e646277991c89be7d82294315
         }
-        this.add(panelImagenes);
     }
+
+    // Revalidamos y repintamos el panel para que los cambios sean visibles
+    panelImagenes.revalidate();
+    panelImagenes.repaint();
 }
 
