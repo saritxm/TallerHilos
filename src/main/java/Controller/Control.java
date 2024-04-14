@@ -4,8 +4,6 @@ import Model.Directorio;
 import View.FChooser;
 import java.util.ArrayList;
 import java.io.File;
-import java.util.Arrays;
-
 
 public class Control {
     private Directorio directorio;
@@ -16,16 +14,19 @@ public class Control {
         this.fileChooser = new FChooser();
         iniciar();
     }
-    public ArrayList <File> vistaImagenes(){
+    public ArrayList <File> vistaImagenes(String path){
+        File dir = new File(path);
+        File [] archivos = dir.listFiles();
         ArrayList<File> imagenes = new ArrayList<>();
-        for(File archivo: Arrays.asList(fileChooser.seleccionarCarpeta().listFiles())){
+        System.out.println(path); 
+        for(File archivo: archivos){
             imagenes.add(archivo);
             System.out.println(archivo.getName());
         }
         return imagenes;
     }
     public void iniciar(){
-        directorio.llenarDirectorio(vistaImagenes());
+        directorio.llenarDirectorio(vistaImagenes(fileChooser.seleccionarDirectorio()));
     }
 
 }

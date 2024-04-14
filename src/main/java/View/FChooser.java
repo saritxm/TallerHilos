@@ -1,18 +1,22 @@
 package View;
 
 import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileSystemView;
-import java.io.File;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class FChooser {
+    public String seleccionarDirectorio() {
+        JFileChooser jf = new JFileChooser();
+        jf.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de imagen", "jpg", "png");
+        jf.setFileFilter(filtro);
 
-    public File seleccionarCarpeta() {
-        JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        int seleccion = fileChooser.showDialog(null, "Seleccionar carpeta");
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-            return fileChooser.getSelectedFile();
+        int resultado = jf.showOpenDialog(null);
+
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            return jf.getSelectedFile().getAbsolutePath();
         } else {
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado una carpeta.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return null;
         }
     }
