@@ -25,6 +25,7 @@ import javax.swing.JScrollPane;
 public class VentanaCatalogo extends javax.swing.JFrame {
     
     public ArrayList<JButton> botones; 
+    
     /**
      * Creates new form ventanaCatalogo
      */
@@ -50,6 +51,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnBuscarDir = new javax.swing.JButton();
         btnSalirVC = new javax.swing.JButton();
+        panelImagenes = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -73,6 +75,19 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         btnSalirVC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/salir.jpg"))); // NOI18N
         btnSalirVC.setText("jButton2");
         jPanel1.add(btnSalirVC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 210, 70));
+
+        javax.swing.GroupLayout panelImagenesLayout = new javax.swing.GroupLayout(panelImagenes);
+        panelImagenes.setLayout(panelImagenesLayout);
+        panelImagenesLayout.setHorizontalGroup(
+            panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 730, Short.MAX_VALUE)
+        );
+        panelImagenesLayout.setVerticalGroup(
+            panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 260, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(panelImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 730, 260));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/fondo.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -102,6 +117,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JPanel panelImagenes;
     // End of variables declaration//GEN-END:variables
 
 public void mostrarBotones(ArrayList<File> imagenes) {
@@ -127,11 +143,13 @@ public void mostrarBotones(ArrayList<File> imagenes) {
             // Agregamos el botón al panel de botones
             botones.add(boton);
             panelImagenes.add(boton);
-            barraImagenes.setVisible(true);
+            //barraImagenes.setVisible(true);
         } catch (Exception ex) {
             System.err.println("Error al cargar la imagen: " + ex.getMessage());
         }
-        barraImagenes.setPreferredSize(new Dimension(800, 200));
+         jScrollPane1.setPreferredSize(new Dimension(800, 200));
+
+
     // Revalidamos y repintamos el panel para que los cambios sean visibles
     panelImagenes.revalidate();
     panelImagenes.repaint();
