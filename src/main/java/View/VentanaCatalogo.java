@@ -114,17 +114,17 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 public void mostrarBotones(Directorio directorio) {
-    panelImagenes.removeAll(); // Eliminar cualquier botón existente en el panel antes de agregar nuevos
-    ArrayList<File> imagenes = directorio.getImagenes(); // Obtener la lista de imágenes del modelo
+    panelImagenes.removeAll(); 
+    ArrayList<File> imagenes = directorio.getImagenes();
     for (File imagen : imagenes) {
         ImageIcon icono = new ImageIcon(imagen.getAbsolutePath());
         Image img = icono.getImage();
         Image nuevaImg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
         icono = new ImageIcon(nuevaImg);
         JButton boton = new JButton(icono);
-        panelImagenes.add(boton); // Agregar el botón al panel
+        panelImagenes.add(boton); 
     }
-    panelImagenes.revalidate(); // Actualizar el panel para reflejar los cambios
+    panelImagenes.revalidate();
     panelImagenes.repaint();
 }
 
