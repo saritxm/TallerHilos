@@ -5,6 +5,7 @@
 package View;
 
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
@@ -84,7 +85,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
 
         barraImagenes.setViewportView(panelImagenes);
 
-        jPanel1.add(barraImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 750, 220));
+        jPanel1.add(barraImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 750, 200));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/fondo.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -103,6 +104,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         barraImagenes.setVisible(false);
         pack();
         setSize(new Dimension(830,400));
+        panelImagenes.setBackground(new Color(246, 133, 122));
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -150,6 +152,7 @@ public void mostrarBotones(ArrayList<File> imagenes) {
     panelImagenes.revalidate();
     panelImagenes.repaint();
     barraImagenes.setVisible(true);
+    System.out.println(barraImagenes.getWidth()+","+ barraImagenes.getHeight());
     }
 }
 }
