@@ -40,11 +40,10 @@ public class HiloYVentana implements ActionListener{
 
 
     private void barraProgreso(int a){
-        int porcentaje = (a * 100) / v.jProgressBar1.getMaximum(); // Calcular el porcentaje
+        int porcentaje = (a * 100) / v.jProgressBar1.getMaximum(); 
         v.jProgressBar1.setValue(a);
-        v.jProgressBar1.setString(porcentaje + "%"); // Establecer el porcentaje como texto en el progress bar
-        v.jProgressBar1.setStringPainted(true); // Habilitar la visualización del texto en el progress bar
-    }
+        v.jProgressBar1.setString(porcentaje + "%"); 
+        v.jProgressBar1.setStringPainted(true); 
     
     
 
