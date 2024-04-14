@@ -40,9 +40,13 @@ public class Control implements ActionListener {
 
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == this.vCatalogo.btnBuscarDir){
-            directorio.llenarDirectorio(vistaImagenes(fileChooser.seleccionarDirectorio()));
-            vCatalogo.mostrarBotones(directorio);
+           // directorio.llenarDirectorio(vistaImagenes(fileChooser.seleccionarDirectorio()));
+           String directorioSeleccionado = fileChooser.seleccionarDirectorio();
+           if (directorioSeleccionado != null) {
+               ArrayList<File> imagenes = vistaImagenes(directorioSeleccionado);
+               directorio.llenarDirectorio(imagenes);
+               vCatalogo.mostrarBotones(directorio);
+           }
+       }
+   }
         }
-    }
-
-}
