@@ -152,9 +152,9 @@ public class VentanaVisor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelImagen;
-    private javax.swing.JButton btnContinuar;
-    private javax.swing.JButton btnDetener;
-    private javax.swing.JButton btnSalirVisor;
+    public javax.swing.JButton btnContinuar;
+    public javax.swing.JButton btnDetener;
+    public javax.swing.JButton btnSalirVisor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

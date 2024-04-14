@@ -5,11 +5,14 @@
 package View;
 
 import Model.Directorio;
+
+import java.awt.Dimension;
 import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
 
 
 /**
@@ -97,16 +100,17 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     
 
        public void mostrarBotones(Directorio directorio) {
-        panelBotones.removeAll(); 
         ArrayList<File> imagenes = directorio.getImagenes();
         for (File imagen : imagenes) {
-            ImageIcon icono = new ImageIcon(imagen.getAbsolutePath());
-            Image img = icono.getImage();
-            Image nuevaImg = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
-            icono = new ImageIcon(nuevaImg);
-            JButton boton = new JButton(icono);
+            JButton boton = new JButton();
+            boton.setIcon(new ImageIcon (imagen.getAbsolutePath()));
+            boton.setPreferredSize(new Dimension(100,100));
             panelBotones.add(boton); 
         }
+        JScrollPane scrollPane = new JScrollPane(panelBotones);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        panelBotones.add(scrollPane);
+        
         panelBotones.revalidate(); 
         panelBotones.repaint();
         
