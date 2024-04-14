@@ -101,7 +101,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
+        barraImagenes.setVisible(false);
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -138,6 +138,7 @@ public void mostrarBotones(ArrayList<File> imagenes) {
             // Agregamos el botón al panel de botones
             botones.add(boton);
             panelImagenes.add(boton);
+            barraImagenes.setVisible(true);
         } catch (Exception ex) {
             System.err.println("Error al cargar la imagen: " + ex.getMessage());
         }
