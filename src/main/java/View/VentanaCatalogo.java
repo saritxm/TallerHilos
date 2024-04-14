@@ -102,6 +102,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         );
         barraImagenes.setVisible(false);
         pack();
+        setSize(new Dimension(830,400));
 
     }// </editor-fold>//GEN-END:initComponents
 
