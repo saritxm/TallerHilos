@@ -34,7 +34,11 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         btnBuscarDir = new javax.swing.JButton();
         btnSalirVC = new javax.swing.JButton();
@@ -63,6 +67,12 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         btnSalirVC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/salir.jpg"))); // NOI18N
         btnSalirVC.setText("jButton2");
         jPanel1.add(btnSalirVC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 210, 70));
+
+        barraImagenes.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                barraImagenesComponentAdded(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelImagenesLayout = new javax.swing.GroupLayout(panelImagenes);
         panelImagenes.setLayout(panelImagenesLayout);
@@ -97,6 +107,10 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void barraImagenesComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_barraImagenesComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_barraImagenesComponentAdded
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane barraImagenes;
     public javax.swing.JButton btnBuscarDir;
@@ -104,6 +118,10 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPanel panelImagenes;
     // End of variables declaration//GEN-END:variables
     
