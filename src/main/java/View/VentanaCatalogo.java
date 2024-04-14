@@ -85,7 +85,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
 
         jPanel1.add(barraImagenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 750, 220));
 
-        javax.swing.GroupLayout panelImagenesLayout = new javax.swing.GroupLayout(panelImagenes);
+       // javax.swing.GroupLayout panelImagenesLayout = new javax.swing.GroupLayout(panelImagenes);
         panelImagenes.setLayout(panelImagenesLayout);
         panelImagenesLayout.setHorizontalGroup(
             panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
