@@ -10,6 +10,7 @@ import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
 
 
 /**
@@ -97,7 +98,6 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     
 
        public void mostrarBotones(Directorio directorio) {
-        panelBotones.removeAll(); 
         ArrayList<File> imagenes = directorio.getImagenes();
         for (File imagen : imagenes) {
             ImageIcon icono = new ImageIcon(imagen.getAbsolutePath());
@@ -107,6 +107,10 @@ public class VentanaCatalogo extends javax.swing.JFrame {
             JButton boton = new JButton(icono);
             panelBotones.add(boton); 
         }
+        JScrollPane scrollPane = new JScrollPane(panelBotones);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        
+        
         panelBotones.revalidate(); 
         panelBotones.repaint();
     }
