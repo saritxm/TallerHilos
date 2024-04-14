@@ -99,7 +99,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
+        panelImagenes.setSize(750,218);
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -125,14 +125,9 @@ public void mostrarBotones(ArrayList<File> imagenes) {
         try {
             // Cargamos la imagen y la ajustamos al tamaño deseado
             ImageIcon icono = new ImageIcon(imagenFile.getAbsolutePath());
-            Image imagen = icono.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-
-            // Creamos un nuevo botón con la imagen
-            JButton boton = new JButton(new ImageIcon(imagen));
-
-            // Establecemos un tooltip con el nombre del archivo de imagen
-            boton.setToolTipText(imagenFile.getName());
-
+            JButton boton = new JButton();
+            boton.setIcon(icono);
+            boton.setPreferredSize(new Dimension(150, 180));
             // Agregamos el botón al panel de botones
             panelImagenes.add(boton);
         } catch (Exception ex) {
