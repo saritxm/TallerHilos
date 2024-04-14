@@ -38,6 +38,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         btnBuscarDir = new javax.swing.JButton();
         btnSalirVC = new javax.swing.JButton();
         panelBotones = new javax.swing.JPanel();
+        jScrollBar1 = new javax.swing.JScrollBar();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,11 +68,13 @@ public class VentanaCatalogo extends javax.swing.JFrame {
         panelBotones.setLayout(panelBotonesLayout);
         panelBotonesLayout.setHorizontalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
         panelBotonesLayout.setVerticalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonesLayout.createSequentialGroup()
+                .addGap(0, 352, Short.MAX_VALUE)
+                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(panelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 850, 380));
@@ -106,6 +109,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
     private javax.swing.JButton btnSalirVC;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JPanel panelBotones;
     // End of variables declaration//GEN-END:variables
     
