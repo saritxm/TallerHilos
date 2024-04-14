@@ -15,6 +15,16 @@ import javax.swing.ImageIcon;
  */
 public class VentanaVisor extends javax.swing.JFrame {
 
+    public int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     /**
      * Creates new form VentanaVisor
      */
@@ -155,6 +165,10 @@ public class VentanaVisor extends javax.swing.JFrame {
     public void mostrarImagen(File imagen) {
         LabelImagen.setIcon(new ImageIcon(imagen.getPath()));
         repaint();
+    }
+
+    public void cerrar(){
+        dispose();
     }
     
 }
