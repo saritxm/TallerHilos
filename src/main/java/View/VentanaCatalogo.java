@@ -4,16 +4,12 @@
  */
 package View;
 
-import Model.Directorio;
 
 import java.awt.Dimension;
-import java.awt.Image;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JScrollPane;
 
 
 /**
@@ -117,7 +113,7 @@ public class VentanaCatalogo extends javax.swing.JFrame {
             JButton boton = new JButton();
             boton.setIcon(new ImageIcon(imagen.getAbsolutePath()));
             boton.setPreferredSize(new Dimension(100, 100));
-            boton.setActionCommand(getName());
+            boton.setActionCommand(imagen.getName());
             panelImagenes.add(boton);
         }
     }
