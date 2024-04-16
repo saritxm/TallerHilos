@@ -94,7 +94,7 @@ public class Control implements ActionListener {
         else if (vCatalogo.botones.contains(e.getSource())) {
             // Obtener el index de la imagen seleccionada
             int y = vCatalogo.botones.indexOf(e.getSource());
-            System.out.println(y);
+            avisos.consola("Index del boton: "+y);;
             // Creacion de un controlador (Hilo y ventana) (Ver clase HiloYVentana)
             new HiloYVentana(directorio.getImagenes(), this, e.getActionCommand(), y);
         }

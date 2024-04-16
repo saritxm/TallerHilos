@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 
-import Model.HiloCarrete;
 import View.VentanaVisor;
 
 /**
