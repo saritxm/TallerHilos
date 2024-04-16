@@ -17,7 +17,7 @@ public class Directorio {
     public Directorio() {
         this.imagenes = new ArrayList<>();
     }
-
+    //llena el directorio con las imagenes que vienen desde el FChooser que esta en el control
     public void llenarDirectorio(ArrayList<File> archivos) {
         if (archivos != null) {
             for (File archivo : archivos) {
@@ -25,11 +25,11 @@ public class Directorio {
             }
         }
     }
-
+    //Devuelve las imagenes del directorio
     public ArrayList<File> getImagenes() {
         return imagenes;
     }
-
+    //modifica las imagenes que se guardan en el directorio
     public void setImagenes(ArrayList<File> imagenes) {
         this.imagenes = imagenes;
     }

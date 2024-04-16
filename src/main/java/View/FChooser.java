@@ -3,8 +3,8 @@ package View;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
 public class FChooser {
+    //Obtiene la direccion de la carpeta que contiene las imagenes
     public String seleccionarDirectorio() {
         JFileChooser jf = new JFileChooser();
         jf.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
