@@ -23,11 +23,10 @@ public class HiloCarrete extends Thread {
      * 
      * @param x              //Todas las imagenes
      * @param metodoImagenes //Metodo que actuliza en la vista a traves de la
-     *                       interfaz Consumer sin exponer la vista al modelo o
-     *                       vicerversa
-     * @param aviso          //Metodo para mostrar algun aviso ...
+     *                       interfaz Consumer
+     * @param aviso          //Metodo para mostrar algun aviso 
      * @param incio          //De donde comienza a mostrar imagenes
-     * @param progress       //Metodo para actualizar la barra de progreso ...
+     * @param progress       //Metodo para actualizar la barra de progreso 
      */
     public HiloCarrete(ArrayList<File> x, Consumer<File> metodoImagenes, Consumer<String> aviso, int incio,
             Consumer<Integer> progress) {
